@@ -1,108 +1,108 @@
 #include "c8_cpu.h"
 
-static void cls() {
+static void cls(c8_cpu_t *cpu) {
 }
 
-static void ret() {
+static void ret(c8_cpu_t *cpu) {
 }
 
-static void sys_addr() {
+static void sys_addr(c8_cpu_t *cpu) {
 }
 
-static void jp_addr(uint16_t addr) {
+static void jp_addr(c8_cpu_t *cpu, uint16_t addr) {
 }
 
-static void call_addr(uint16_t addr) {
+static void call_addr(c8_cpu_t *cpu, uint16_t addr) {
 }
 
-static void se_vx_byte(uint8_t vx, uint8_t byte) {
+static void se_vx_byte(c8_cpu_t *cpuuint8_t vx, uint8_t byte) {
 }
 
-static void sne_vx_byte() {
+static void sne_vx_byte(c8_cpu_t *cpu) {
 }
 
-static void se_vx_vy() {
+static void se_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void ld_vx_byte() {
+static void ld_vx_byte(c8_cpu_t *cpu) {
 }
 
-static void add_vx_byte() {
+static void add_vx_byte(c8_cpu_t *cpu) {
 }
 
-static void ld_vx_vy() {
+static void ld_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void or_vx_vy() {
+static void or_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void and_vx_vy() {
+static void and_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void xor_vx_vy() {
+static void xor_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void add_vx_vy() {
+static void add_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void sub_vx_vy() {
+static void sub_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void shr_vx_vy() {
+static void shr_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void subn_vx_vy() {
+static void subn_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void shl_vx_vy() {
+static void shl_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void sne_vx_vy() {
+static void sne_vx_vy(c8_cpu_t *cpu) {
 }
 
-static void ld_i_addr() {
+static void ld_i_addr(c8_cpu_t *cpu) {
 }
 
-static void jp_v0_addr() {
+static void jp_v0_addr(c8_cpu_t *cpu) {
 }
 
-static void rnd_vx_byte() {
+static void rnd_vx_byte(c8_cpu_t *cpu) {
 }
 
-static void drw_vx_vy_nibble() {
+static void drw_vx_vy_nibble(c8_cpu_t *cpu) {
 }
 
-static void skp_vx() {
+static void skp_vx(c8_cpu_t *cpu) {
 }
 
-static void sknp_vx() {
+static void sknp_vx(c8_cpu_t *cpu) {
 }
 
-static void ld_vx_dt() {
+static void ld_vx_dt(c8_cpu_t *cpu) {
 }
 
-static void ld_vx_k() {
+static void ld_vx_k(c8_cpu_t *cpu) {
 }
 
-static void ld_dt_vx() {
+static void ld_dt_vx(c8_cpu_t *cpu) {
 }
 
-static void ld_st_vx() {
+static void ld_st_vx(c8_cpu_t *cpu) {
 }
 
-static void add_i_vx() {
+static void add_i_vx(c8_cpu_t *cpu) {
 }
 
-static void ld_f_vx() {
+static void ld_f_vx(c8_cpu_t *cpu) {
 }
 
-static void ld_b_vx() {
+static void ld_b_vx(c8_cpu_t *cpu) {
 }
 
-static void ld_i_vx() {
+static void ld_i_vx(c8_cpu_t *cpu) {
 }
 
-static void ld_vx_i() {
+static void ld_vx_i(c8_cpu_t *cpu) {
 }
 
 void execute_opcode(uint16_t opcode) {
