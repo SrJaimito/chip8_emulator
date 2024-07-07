@@ -1,0 +1,20 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-O3",
+      "-g3",
+      "-Wall",
+      "-pedantic",
+      "-Isrc/c8_cpu",
+      "-Isrc/c8_memory",
+      "-c",
+      "-o",
+      "build/c8_cpu.o",
+      "src/c8_cpu/c8_cpu.c"
+    ],
+    "directory": "/home/jaime/Documents/projects/chip8_emulator",
+    "file": "/home/jaime/Documents/projects/chip8_emulator/src/c8_cpu/c8_cpu.c",
+    "output": "/home/jaime/Documents/projects/chip8_emulator/build/c8_cpu.o"
+  }
+]
