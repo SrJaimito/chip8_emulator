@@ -2,19 +2,27 @@
   {
     "arguments": [
       "/usr/bin/gcc",
+      "-c",
+      "build/c8_cpu.o",
+      "build/c8_memory.o",
+      "build/c8_display.o",
+      "build/c8_timer.o",
+      "build/c8_keyboard.o",
       "-O3",
       "-g3",
       "-Wall",
       "-pedantic",
       "-Isrc/c8_cpu",
       "-Isrc/c8_memory",
-      "-c",
+      "-Isrc/c8_display",
+      "-Isrc/c8_timer",
+      "-Isrc/c8_keyboard",
       "-o",
-      "build/c8_cpu.o",
-      "src/c8_cpu/c8_cpu.c"
+      "chip8",
+      "src/main.c"
     ],
     "directory": "/home/jaime/Documents/projects/chip8_emulator",
-    "file": "/home/jaime/Documents/projects/chip8_emulator/src/c8_cpu/c8_cpu.c",
-    "output": "/home/jaime/Documents/projects/chip8_emulator/build/c8_cpu.o"
+    "file": "/home/jaime/Documents/projects/chip8_emulator/src/main.c",
+    "output": "/home/jaime/Documents/projects/chip8_emulator/chip8"
   }
 ]
