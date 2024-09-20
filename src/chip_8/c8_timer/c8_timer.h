@@ -5,11 +5,14 @@
 
 typedef struct {
     uint8_t count;
+    uint32_t last_decrease_time;
 } c8_timer_t;
 
 void c8_timer_init(c8_timer_t *timer);
+
 uint8_t c8_timer_get_count(c8_timer_t *timer);
 void c8_timer_set_count(c8_timer_t *timer, uint8_t count);
+
 void c8_timer_update(c8_timer_t *timer);
 
 #endif

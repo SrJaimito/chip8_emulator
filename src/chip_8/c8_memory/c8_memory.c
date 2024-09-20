@@ -1,0 +1,60 @@
+#include "c8_memory.h"
+
+#include <stdio.h>
+#include <string.h>
+
+#define FONT_SPRITES_SIZE (5 * 16)
+
+#define FONT_SPRITES_DATA {         \
+    0xF0, 0x90, 0x90, 0x90, 0xF0,   \
+    0x20, 0x60, 0x20, 0x20, 0x70,   \
+    0xF0, 0x10, 0xF0, 0x80, 0xF0,   \
+    0xF0, 0x10, 0xF0, 0x10, 0xF0,   \
+    0x90, 0x90, 0xF0, 0x10, 0x10,   \
+    0xF0, 0x80, 0xF0, 0x10, 0xF0,   \
+    0xF0, 0x80, 0x90, 0x90, 0xF0,   \
+    0xF0, 0x10, 0x20, 0x40, 0x40,   \
+    0xF0, 0x90, 0xF0, 0x90, 0xF0,   \
+    0xF0, 0x90, 0xF0, 0x10, 0xF0,   \
+    0xF0, 0x90, 0xF0, 0x90, 0x90,   \
+    0xE0, 0x90, 0xE0, 0x90, 0xE0,   \
+    0xF0, 0x80, 0x80, 0x80, 0xF0,   \
+    0xE0, 0x90, 0x90, 0x90, 0xE0,   \
+    0xF0, 0x80, 0xF0, 0x80, 0xF0,   \
+    0xF0, 0x80, 0xF0, 0x80, 0x80    \
+}
+
+int c8_memory_init(c8_memory_t *memory, const char *program) {
+    uint8_t font_sprites[FONT_SPRITES_SIZE] = FONT_SPRITES_DATA;
+
+    memcpy(memory->data, font_sprites, FONT_SPRITES_SIZE);
+
+    FILE *fp = fopen(program, "rb");
+    if (fp == NULL) {
+        return 1;
+    }
+
+    fseek(fp, 0, SEEK_END);
+
+    size_t program_size = ftell(fp);
+    if (program_size > C8_MAX_PROGRAM_SIZE) {
+        fclose(fp);
+        return 2;
+    }
+
+    fseek(fp, 0, SEEK_SET);
+
+    fread(memory->data + C8_PROGRAM_START_ADDR, 1, program_size, fp);
+
+    fclose(fp);
+
+    return 0;
+}
+
+void c8_memory_write(c8_memory_t *memory, uint16_t addr, uint8_t value){
+    memory->data[addr] = value;
+}
+
+void c8_memory_read(c8_memory_t *memory, uint16_t addr, uint8_t *value){
+    *value = memory->data[addr];
+}

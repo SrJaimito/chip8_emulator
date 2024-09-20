@@ -30,18 +30,14 @@ void c8_keyboard_init(c8_keyboard_t *keyboard) {
     memset(keyboard->pressed_keys, 0, C8_NUM_KEYS * sizeof(int));
 }
 
-void c8_keyboard_poll(c8_keyboard_t *keyboard) {
-    SDL_Event event;
+void c8_keyboard_check_input(c8_keyboard_t *keyboard, SDL_Event *event) {
+    switch (event->type) {
+        case SDL_KEYDOWN:
+            keyboard->pressed_keys[map_input(event)] = 1;
+            break;
 
-    while (SDL_PollEvent(&event)) {
-        switch (event.type) {
-            case SDL_KEYDOWN:
-                keyboard->pressed_keys[map_input(&event)] = 1;
-                break;
-
-            case SDL_KEYUP:
-                keyboard->pressed_keys[map_input(&event)] = 0;
-        }
+        case SDL_KEYUP:
+            keyboard->pressed_keys[map_input(event)] = 0;
     }
 }
 
